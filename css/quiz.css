@@ -15,3 +15,21 @@ body{
 #quiz{
 	border:5px solid green;
 }
+
+#title{
+	text-align:center;
+	font-weight:bold;
+	font-size:2em;
+	margin:0 auto;
+}
+
+.sub-heading{
+	text-decoration:underline;
+	font-size:1.4em;
+	margin:0 auto;
+}
+
+.description{
+	font-size:1.2em;
+	margin-top:2px;
+}
