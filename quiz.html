@@ -4,6 +4,10 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="css/quiz.css"/>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/validation.js"></script>	
+		
 	<title>Quiz</title>
 </head>
 
@@ -18,9 +22,9 @@
 		<div id="quiz">
 			<form>	
 				<p class="description question">Question 1: Select your answer<p>
-				<input type="radio" name="radio" class="radio" value=1/>Answer1 <br/>
-				<input type="radio" name="radio" class="radio" value=2/>Answer2 <br/>
-				<input type="radio" name="radio" class="radio" value=3/>Answer3
+				<input type="radio" name="radio" class="radio" value="1"/>Answer1 <br/>
+				<input type="radio" name="radio" class="radio" value="2"/>Answer2 <br/>
+				<input type="radio" name="radio" class="radio" value="3"/>Answer3
 
 				<hr/>
 				
@@ -39,7 +43,7 @@
 				<br/>
 				
 				<div class="align-center">
-					<input type="submit" id="submit_button" value="Submit"/>
+					<input type="submit" id="submit_button" value="Submit" onclick="return check();"/>
 				<div>
 				
 			</form>
