@@ -33,3 +33,16 @@ body{
 	font-size:1.2em;
 	margin-top:2px;
 }
+
+.question{
+	margin-bottom:2px;
+}
+
+.align-center{
+	text-align:center;
+}
+
+#submit_button{
+	width:20em;
+	height:2em;
+}
