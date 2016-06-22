@@ -1,0 +1,17 @@
+body{
+	background-color:#F8F8FF;
+}
+
+#wrapper{
+	width:80%;
+	margin:0 auto;
+	border:5px solid red;
+}
+
+#header{
+	border:5px solid blue;
+}
+
+#quiz{
+	border:5px solid green;
+}
