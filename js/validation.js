@@ -1,6 +1,7 @@
+//This function is returned by onclick()
 function check(){
-validateRadio(document.getElementsByName("radio"));
-validateCheckbox(document.getElementsByName("checkbox"));
+	validateRadio(document.getElementsByName("radio"));
+	validateCheckbox(document.getElementsByName("checkbox"));
 }
 
 function validateRadio(key){
@@ -8,8 +9,10 @@ function validateRadio(key){
 	var len = answer.length;
 	
 	for(i=0;i<len;i++){
-		if(answer[i].checked)
-			alert("You chose " + answer[i].value);
+		if(answer[i].checked){
+			//alert("You chose " + answer[i].value);
+			checkAnswer(answer[i].value);
+		}
 	}	
 }
 
@@ -44,3 +47,10 @@ function validateCheckboxLimit(checkgroup,limit){
 	}
 }
 
+function checkAnswer(answer){
+	if(answer === "correct")
+		alert("You are correct");
+	else{
+		alert("You are wrong");
+	}	
+}
