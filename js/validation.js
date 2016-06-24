@@ -17,13 +17,20 @@ function validateRadio(key){
 }
 
 function validateCheckbox(checkgroup){
-	var answer2 = checkgroup;
-	var len2 = answer2.length;
+	var answer = checkgroup;
+	var len = answer.length;
 	
-	for(i=0;i<len2;i++){
-		if(answer2[i].checked)
-			alert("You chose " + answer2[i].value);
-	}	
+	var array = new Array();
+	/*array.push("11");
+	array.push("22");
+	alert(array);*/
+	
+	for(i=0;i<len;i++){
+		if(answer[i].checked)
+			//alert("You chose " + answer[i].value);
+			array.push(answer[i]);	
+	}
+	checkAnswer(array);	
 }
 
 function validateCheckboxLimit(checkgroup,limit){
@@ -48,9 +55,19 @@ function validateCheckboxLimit(checkgroup,limit){
 }
 
 function checkAnswer(answer){
-	if(answer === "correct")
+	/*if(answer === "correct")
 		alert("You are correct");
 	else{
 		alert("You are wrong");
-	}	
+	}	*/
+	
+	alert(answer);
+	
+	for(i=0;i<answer.length;i++){
+		if(answer[i].value === "correct")
+			alert("You are correct");
+		else{
+			alert("You are wrong");
+		}	
+	}
 }
