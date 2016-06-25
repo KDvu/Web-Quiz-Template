@@ -2,6 +2,7 @@
 function check(){
 	validateRadio(document.getElementsByName("radio"));
 	validateCheckbox(document.getElementsByName("checkbox"));
+	validateCheckbox(document.getElementsByName("checkbox2"));
 }
 
 function validateRadio(radio_button){
