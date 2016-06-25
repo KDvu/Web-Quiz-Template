@@ -4,14 +4,14 @@ function check(){
 	validateCheckbox(document.getElementsByName("checkbox"));
 }
 
-function validateRadio(key){
-	var answer = key;
+function validateRadio(radio_button){
+	var answer = radio_button;
 	var len = answer.length;
 	
 	for(i=0;i<len;i++){
 		if(answer[i].checked){
 			//alert("You chose " + answer[i].value);
-			checkAnswer(answer[i].value);
+			checkAnswer(answer[i].value, "radio");
 		}
 	}	
 }
@@ -30,10 +30,10 @@ function validateCheckbox(checkgroup){
 			//alert("You chose " + answer[i].value);
 			array.push(answer[i]);	
 	}
-	checkAnswer(array);	
+	checkAnswer(array,"checkbox");	
 }
 
-function validateCheckboxLimit(checkgroup,limit){
+function checkboxLimit(checkgroup,limit){
 	//var checkgroup = document.getElementsByName("checkbox2");
 	//var limit = 2;
 	
@@ -54,20 +54,25 @@ function validateCheckboxLimit(checkgroup,limit){
 	}
 }
 
-function checkAnswer(answer){
-	/*if(answer === "correct")
-		alert("You are correct");
-	else{
-		alert("You are wrong");
-	}	*/
-	
-	alert(answer);
-	
-	for(i=0;i<answer.length;i++){
-		if(answer[i].value === "correct")
+function checkAnswer(answer,type){
+	if(type == "radio"){
+		alert("Checking radio");
+		if(answer === "correct")
 			alert("You are correct");
 		else{
 			alert("You are wrong");
+		}
+	}
+	else if(type == "checkbox"){
+		alert("Checking checkbox");
+		for(i=0;i<answer.length;i++){
+			if(answer[i].value === "correct")
+				alert("You are correct");
+			else{
+				alert("You are wrong");
+			}		
 		}	
+	}else {
+		alert("ERROR");
 	}
 }
