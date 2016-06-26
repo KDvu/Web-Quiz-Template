@@ -9,10 +9,14 @@ function validateRadio(radio_button){
 	var answer = radio_button;
 	var len = answer.length;
 	
+	var test = $('.answer');
+	test.append("<p class = 'feedback'>11111111111111111111</p>");
+
 	for(i=0;i<len;i++){
 		if(answer[i].checked){
 			//alert("You chose " + answer[i].value);
 			checkAnswer(answer[i].value, "radio");
+			
 		}
 	}	
 }

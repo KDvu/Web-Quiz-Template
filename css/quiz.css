@@ -38,6 +38,13 @@ body{
 	margin-bottom:2px;
 }
 
+.feedback{
+	background-color:red;
+	margin-left:20px;
+	margin-top:5px;
+	margin-bottom:1px;
+}
+
 .align-center{
 	text-align:center;
 }
@@ -45,4 +52,8 @@ body{
 #submit_button{
 	width:20em;
 	height:2em;
+}
+
+#label{
+	margin: 0 auto;
 }
