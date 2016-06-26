@@ -38,6 +38,10 @@ body{
 	margin-bottom:2px;
 }
 
+.answer{
+	font-size:1.3em;
+}
+
 .feedback{
 	background-color:red;
 	margin-left:20px;
