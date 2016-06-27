@@ -7,6 +7,7 @@ function check(){
 	validateRadio(document.getElementsByName("radio"));
 	validateCheckbox(document.getElementsByName("checkbox"));
 	validateCheckbox(document.getElementsByName("checkbox2"));
+	attachFeedback();
 }
 
 //Check given radio button
@@ -14,14 +15,13 @@ function validateRadio(radio_button){
 	var answer = radio_button;
 	var len = answer.length;
 	
-	var test = $('.answer');
-	test.append("<p class = 'feedback'>11111111111111111111</p>");
+	//var test = $('.answer');
+	//test.append("<p class = 'feedback'>11111111111111111111</p>");
 
 	for(i=0;i<len;i++){
 		if(answer[i].checked){
 			//alert("You chose " + answer[i].value);
 			checkAnswer(answer[i].value, "radio");
-			
 		}
 	}	
 }
@@ -69,7 +69,7 @@ function checkboxLimit(checkgroup,limit){
 //Check the answer and prints the appropriate message
 function checkAnswer(answer,type){
 	if(type == "radio"){
-		alert("Checking radio");
+		//alert("Checking radio");
 		if(answer === "correct")
 			alert("You are correct");
 		else{
@@ -77,7 +77,7 @@ function checkAnswer(answer,type){
 		}
 	}
 	else if(type == "checkbox"){
-		alert("Checking checkbox");
+		//alert("Checking checkbox");
 		for(i=0;i<answer.length;i++){
 			if(answer[i].value === "correct")
 				alert("You are correct");
@@ -87,5 +87,27 @@ function checkAnswer(answer,type){
 		}	
 	}else {
 		alert("ERROR");
-	}
+	}	
+}
+
+function attachFeedback(){
+	//console.log($(".answer").attr("value"));
+	
+	$( ".answer" ).each(function() {
+		console.log($( this ).attr("value"));
+		var value = $(this).attr("value");
+		//alert(value);
+		
+		if (value == "correct"){
+			alert("correct");
+			$(this).parent(".answer_box").append("<p class='feedback'>Correct<p>");
+		} else if (value == "wrong"){
+			$(this).parent(".answer_box").append("<p class='feedback'>Wrong<p>");
+		} else{
+			$(this).parent(".answer_box").append("<p class='feedback'>ERROR<p>");
+		}
+		
+	});
+ 
+	
 }

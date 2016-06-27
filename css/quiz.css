@@ -38,8 +38,12 @@ body{
 	margin-bottom:2px;
 }
 
-.answer{
+.answer_box{
 	font-size:1.3em;
+}
+
+.answer{
+	
 }
 
 .feedback{
