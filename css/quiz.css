@@ -46,11 +46,29 @@ body{
 	
 }
 
-.feedback{
+.correct{
+	background-color:green;
+	margin-left:20px;
+	margin-top:5px;
+	margin-bottom:1px;
+}
+
+.correction{
+	background-color:yellow;
+	margin-left:20px;
+	margin-top:5px;
+	margin-bottom:1px;
+}
+
+.wrong{
 	background-color:red;
 	margin-left:20px;
 	margin-top:5px;
 	margin-bottom:1px;
+}
+
+.feedback{
+
 }
 
 .align-center{

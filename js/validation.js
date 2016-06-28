@@ -4,19 +4,16 @@ function check(){
 	$( ".answer" ).unbind(); 
 	
 	//Validate answers
-	validateRadio(document.getElementsByName("radio"));
-	validateCheckbox(document.getElementsByName("checkbox"));
-	validateCheckbox(document.getElementsByName("checkbox2"));
+	//validateRadio(document.getElementsByName("radio"));
+	//validateCheckbox(document.getElementsByName("checkbox"));
+	//validateCheckbox(document.getElementsByName("checkbox2"));
 	attachFeedback();
 }
 
-//Check given radio button
+/*  //Check given radio button
 function validateRadio(radio_button){
 	var answer = radio_button;
 	var len = answer.length;
-	
-	//var test = $('.answer');
-	//test.append("<p class = 'feedback'>11111111111111111111</p>");
 
 	for(i=0;i<len;i++){
 		if(answer[i].checked){
@@ -32,9 +29,6 @@ function validateCheckbox(checkgroup){
 	var len = answer.length;
 	
 	var array = new Array();
-	/*array.push("11");
-	array.push("22");
-	alert(array);*/
 	
 	for(i=0;i<len;i++){
 		if(answer[i].checked)
@@ -42,7 +36,7 @@ function validateCheckbox(checkgroup){
 			array.push(answer[i]);	
 	}
 	checkAnswer(array,"checkbox");	
-}
+} */
 
 //Check if the limit on the number of boxes that can be checked is not exceeded
 function checkboxLimit(checkgroup,limit){
@@ -96,18 +90,22 @@ function attachFeedback(){
 	$( ".answer" ).each(function() {
 		console.log($( this ).attr("value"));
 		var value = $(this).attr("value");
-		//alert(value);
 		
 		if (value == "correct"){
-			alert("correct");
-			$(this).parent(".answer_box").append("<p class='feedback'>Correct<p>");
+			if($(this).is(':checked')) {
+				$(this).parent(".answer_box").append("<p class='correct'>Correct<p>");
+			} else {
+				$(this).parent(".answer_box").append("<p class='correction'>This is the correct answer!<p>");
+			}
 		} else if (value == "wrong"){
-			$(this).parent(".answer_box").append("<p class='feedback'>Wrong<p>");
+			if($(this).is(':checked')) {
+				$(this).parent(".answer_box").append("<p class='wrong'>This is not the correct answer<p>");
+			} else {
+				$(this).parent(".answer_box").append("<p class='correct'> This answer is indeed incorrect<p>");
+			}		
 		} else{
-			$(this).parent(".answer_box").append("<p class='feedback'>ERROR<p>");
+			$(this).parent(".answer_boxcd").append("<p class='wrong'>ERROR<p>");
 		}
 		
 	});
- 
-	
 }
