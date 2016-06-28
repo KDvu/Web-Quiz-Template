@@ -1,11 +1,61 @@
 //This function is returned by onclick()
 function check(){
+	var valid = true;
+	
 	//Disables hover effect
 	$( ".answer" ).unbind(); 
 	
-	//Validate answers
-	attachFeedback();
+	valid = validateRadio(document.getElementsByName("radio"), "#Q1");
+	valid = validateCheckbox(document.getElementsByName("checkbox"), "#Q2", 0);
+	valid = validateCheckbox(document.getElementsByName("checkbox"), "#Q3", 2);
+
+	
+	if(valid)
+		//Validate answers
+		attachFeedback();
+	else
+		alert("You have not answer all the questions");
 }
+
+//Check given radio button
+function validateRadio(radio_button,qNo){
+	var answer = radio_button;
+	var len = answer.length;
+
+	for(i=0;i<len;i++){
+		if(answer[i].checked)
+			return true;		
+	}
+	$(qNo).append("<p class='warning'>*You did not answer this question</p>");
+	
+	return false;
+}
+
+//Check given checkbox
+function validateCheckbox(checkgroup,qNo,limit){
+	var answer = checkgroup;
+	var len = answer.length;
+	
+	var num_of_answers = new Array();
+	
+	for(i=0;i<len;i++){
+		if(answer[i].checked && limit == 0)
+			return true;
+		else
+			num_of_answers.push(answer[i]);	
+	}
+	
+	if(num_of_answers.length == limit)
+		return true
+	
+	if(limit != 0)
+		$(qNo).append("<p class='warning'>*You need to select " + limit + " answers</p>");
+	else 
+		$(qNo).append("<p class='warning'>*You did not answer this question</p>");
+
+	return false;
+} 
+
 
 //Check if the limit on the number of boxes that can be checked is not exceeded
 function checkboxLimit(checkgroup,limit){

@@ -67,8 +67,11 @@ body{
 	margin-bottom:1px;
 }
 
-.feedback{
-
+.warning{
+	margin: 2px 0px 2px 15px;
+	color:red;
+	font-size:0.8em;
+	font-style:italic;
 }
 
 .align-center{
