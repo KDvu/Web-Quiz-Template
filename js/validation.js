@@ -5,6 +5,9 @@ function check(){
 	//Disables hover effect
 	$( ".answer" ).unbind(); 
 	
+	//Remove warnings before possibly adding them again
+	$(".warning").remove();
+	
 	valid = validateRadio(document.getElementsByName("radio"), "#Q1");
 	valid = validateCheckbox(document.getElementsByName("checkbox"), "#Q2", 0);
 	valid = validateCheckbox(document.getElementsByName("checkbox"), "#Q3", 2);
@@ -26,6 +29,7 @@ function validateRadio(radio_button,qNo){
 		if(answer[i].checked)
 			return true;		
 	}
+	
 	$(qNo).append("<p class='warning'>*You did not answer this question</p>");
 	
 	return false;
