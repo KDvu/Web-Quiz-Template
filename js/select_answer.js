@@ -4,7 +4,13 @@ $(document).ready(function(){
 		if(target.children().is('input:radio')) 
 			$(evt.target).find('input:radio')[0].checked = true; 
 		else if(target.children().is('input:checkbox'))
-			$(evt.target).find('input:checkbox')[0].checked = true; 
-
+			//$(evt.target).find('input:checkbox')[0].checked = true;
+			$(evt.target).find('input:checkbox').trigger('click'); 
+		
 	});
+	
+	//$('input[type=checkbox]').trigger('click'); 
+	//$('input[type=checkbox]').click(); 
+
 });
+
