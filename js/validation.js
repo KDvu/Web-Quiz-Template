@@ -10,8 +10,7 @@ function check(){
 	
 	valid = validateRadio(document.getElementsByName("radio"), "#Q1");
 	valid = validateCheckbox(document.getElementsByName("checkbox"), "#Q2", 0);
-	valid = validateCheckbox(document.getElementsByName("checkbox"), "#Q3", 2);
-
+	valid = validateCheckbox(document.getElementsByName("checkbox2"), "#Q3", 2);
 	
 	if(valid)
 		//Validate answers
@@ -40,18 +39,20 @@ function validateCheckbox(checkgroup,qNo,limit){
 	var answer = checkgroup;
 	var len = answer.length;
 	
-	var num_of_answers = new Array();
+	var counter = 0;
 	
 	for(i=0;i<len;i++){
-		if(answer[i].checked && limit == 0)
-			return true;
-		else
-			num_of_answers.push(answer[i]);	
+		if(answer[i].checked){
+			if(limit != 0)
+				counter++;
+			else 
+				return true;
+		}
 	}
 	
-	if(num_of_answers.length == limit)
+	if(counter==limit && limit!=0)
 		return true
-	
+		
 	if(limit != 0)
 		$(qNo).append("<p class='warning'>*You need to select " + limit + " answers</p>");
 	else 
