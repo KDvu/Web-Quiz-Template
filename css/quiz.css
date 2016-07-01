@@ -40,6 +40,7 @@ body{
 
 .answer_box{
 	font-size:1.3em;
+	cursor:pointer;
 }
 
 .answer{
@@ -78,6 +79,14 @@ body{
 	text-align:center;
 }
 
+input[type="checkbox"]{
+	cursor:pointer;
+}
+
+input[type="radio"]{
+	cursor:pointer;
+}
+
 #submit_button{
 	width:20em;
 	height:2em;
@@ -86,3 +95,4 @@ body{
 #label{
 	margin: 0 auto;
 }
+
