@@ -79,17 +79,10 @@ body{
 	text-align:center;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"],input[type="radio"]{
     vertical-align: middle;
     width: 20px;
     height: 45px;
-	cursor:pointer;
-}
-
-input[type="radio"]{
-    vertical-align: middle;
-    width: 20px;
-    height: 45px;	
 	cursor:pointer;
 }
 
