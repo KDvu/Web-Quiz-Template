@@ -12,10 +12,13 @@ function check(){
 	valid = validateCheckbox(document.getElementsByName("checkbox"), "#Q2", 0);
 	valid = validateCheckbox(document.getElementsByName("checkbox2"), "#Q3", 2);
 	
-	if(valid)
+	if(valid){
 		//Validate answers
 		attachFeedback();
-	else
+		
+		//Disable submit button
+		document.getElementById("submit_button").disabled = true;
+	}else
 		alert("You have not answer all the questions");
 }
 

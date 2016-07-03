@@ -95,3 +95,7 @@ input[type="checkbox"],input[type="radio"]{
 	margin: 0 auto;
 }
 
+button:disabled{
+	border:3px solid blue;
+	opacity:0.5;
+}
