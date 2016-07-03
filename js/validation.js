@@ -169,30 +169,30 @@ function getTotalPoints(checkbox_points){
 		counter++		
 		total_points++;
 		
-		calculatePointDistribution(string, test, checkbox_points);
+		calculatePointDistribution(string, checkbox_points);
 		
 		string = "checkbox" + counter;
 		test = document.getElementsByName(string);
 	}
 	
-	/*for(i=0; i<checkbox_points.length;i++){
+	for(i=0; i<checkbox_points.length;i++){
 			alert(checkbox_points[i]);
-	}*/
+	}
 	
 	alert(total_points);
 }
 
-function calculatePointDistribution(string, test, checkbox_points){
+function calculatePointDistribution(string, checkbox_points){
 	var no_of_correct_answers = 0;
 	var selector = $("[name=" + string + " ]");
 	var value; 
-	
-	selector.each(function(){
-		value = selector.attr("value");
 		
-		if(value == "correct")	
+	selector.each(function(){
+		value = $(this).attr("value");
+		
+		if(value == "correct")
 			no_of_correct_answers++;
 	});
 	
-	checkbox_points.push( 1 / (test.length));
+	checkbox_points.push( 1 / (no_of_correct_answers));
 }
