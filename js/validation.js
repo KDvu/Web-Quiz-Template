@@ -162,14 +162,13 @@ function getTotalPoints(checkbox_points){
 	
 	counter = 1;
 	string = "checkbox" + counter;
-	var test2 = document.getElementsByName(string);
-	
-	
-	while(test2.length>0){
+	test = document.getElementsByName(string);
+		
+	while(test.length>0){
 		counter++		
 		total_points++;
 		string = "checkbox" + counter;
-		test2 = document.getElementsByName(string);
+		test = document.getElementsByName(string);
 	}
 	
 	alert(total_points);
