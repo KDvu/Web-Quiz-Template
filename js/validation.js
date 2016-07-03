@@ -89,25 +89,40 @@ function checkboxLimit(checkgroup,limit){
 
 function attachFeedback(){
 	//console.log($(".answer").attr("value"));
+	var total_points = 0;
+	var points = 0;
+	var value;
+	var	isRadio = false;
+	var obj;
+	var appended = ".answer_box";
 	
 	$( ".answer" ).each(function() {
-		console.log($( this ).attr("value"));
-		var value = $(this).attr("value");
+		//console.log($( this ).attr("value"));
+		value = $(this).attr("value");
+		points = 0;
+		obj = $(this);
+		
+		if(obj.is("Input:radio"))
+			isRadio = true;
+			//alert("radio");
+		else
+			isRadio = false;
 		
 		if (value == "correct"){
-			if($(this).is(':checked')) {
-				$(this).parent(".answer_box").append("<p class='correct'>Correct<p>");
+			if(obj.is(':checked')) {
+				obj.parent(appended).append("<p class='correct'>Correct<p>");
+				//points = addPoints(isRadio,;
 			} else {
-				$(this).parent(".answer_box").append("<p class='correction'>This is the correct answer!<p>");
+				obj.parent(appended).append("<p class='correction'>This is the correct answer!<p>");
 			}
 		} else if (value == "wrong"){
-			if($(this).is(':checked')) {
-				$(this).parent(".answer_box").append("<p class='wrong'>This is not the correct answer<p>");
+			if(obj.is(':checked')) {
+				obj.parent(appended).append("<p class='wrong'>This is not the correct answer<p>");
 			} else {
-				$(this).parent(".answer_box").append("<p class='correct'> This answer is indeed incorrect<p>");
+				obj.parent(appended).append("<p class='correct'> This answer is indeed incorrect<p>");
 			}		
 		} else{
-			$(this).parent(".answer_boxcd").append("<p class='wrong'>ERROR<p>");
+			obj.parent(appended).append("<p class='wrong'>ERROR<p>");
 		}
 		
 	});
