@@ -99,24 +99,30 @@ function attachFeedback(){
 	$( ".answer" ).each(function() {
 		//console.log($( this ).attr("value"));
 		value = $(this).attr("value");
-		points = 0;
 		obj = $(this);
 		
-		if(obj.is("Input:radio"))
-			isRadio = true;
-			//alert("radio");
+		if(obj.is('input:radio'))
+			isRadio=true;
 		else
-			isRadio = false;
+			isRadio=false;
 		
 		if (value == "correct"){
 			if(obj.is(':checked')) {
+				//Increment score
+				points++;
+				alert("Correct +1 point: " + points);
+				total_points++;				
 				obj.parent(appended).append("<p class='correct'>Correct<p>");
-				//points = addPoints(isRadio,;
 			} else {
+				total_points++;
 				obj.parent(appended).append("<p class='correction'>This is the correct answer!<p>");
 			}
 		} else if (value == "wrong"){
 			if(obj.is(':checked')) {
+				if(!isRadio){
+					points--;	
+					alert("Wrong -1 point: " + points);
+				}	
 				obj.parent(appended).append("<p class='wrong'>This is not the correct answer<p>");
 			} else {
 				obj.parent(appended).append("<p class='correct'> This answer is indeed incorrect<p>");
@@ -126,4 +132,5 @@ function attachFeedback(){
 		}
 		
 	});
+	alert("You got " + points + " out of " + total_points);
 }
