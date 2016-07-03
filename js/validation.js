@@ -8,8 +8,8 @@ function check(){
 	//Remove warnings before possibly adding them again
 	$(".warning").remove();
 	
-	valid = validateRadio(document.getElementsByName("radio"), "#Q1");
-	valid = validateCheckbox(document.getElementsByName("checkbox"), "#Q2", 0);
+	valid = validateRadio(document.getElementsByName("radio1"), "#Q1");
+	valid = validateCheckbox(document.getElementsByName("checkbox1"), "#Q2", 0);
 	valid = validateCheckbox(document.getElementsByName("checkbox2"), "#Q3", 2);
 	
 	if(valid){
@@ -87,7 +87,7 @@ function checkboxLimit(checkgroup,limit){
 	}
 }
 
-function attachFeedback(){
+function attachFeedback2s(){
 	//console.log($(".answer").attr("value"));
 	var total_points = 0;
 	var points = 0;
@@ -133,4 +133,44 @@ function attachFeedback(){
 		
 	});
 	alert("You got " + points + " out of " + total_points);
+}
+
+function attachFeedback(){
+	var checkbox_points = new Array();
+	var totat_points = getTotalPoints(checkbox_points);
+}
+
+function getTotalPoints(checkbox_points){
+	var total_points = 0;
+	var counter = 1;
+	var string = "radio" + counter;
+	//var test = $("[name=" + string + "]");
+	var test = document.getElementsByName(string);
+	
+	/*if(test.length > 0){
+		alert("text exists");
+	}else
+		alert("it doesnt exist");*/
+		
+	while(test.length>0){
+		counter++		
+		total_points++;
+		string = "radio" + counter;		
+		//test = $("[name=" + string + "]");
+		test = document.getElementsByName(string);
+	}
+	
+	counter = 1;
+	string = "checkbox" + counter;
+	var test2 = document.getElementsByName(string);
+	
+	
+	while(test2.length>0){
+		counter++		
+		total_points++;
+		string = "checkbox" + counter;
+		test2 = document.getElementsByName(string);
+	}
+	
+	alert(total_points);
 }
