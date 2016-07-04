@@ -138,6 +138,9 @@ function attachFeedback2s(){
 function attachFeedback(){
 	var checkbox_points = new Array();
 	var totat_points = getTotalPoints(checkbox_points);
+	var points = 0;
+	
+	points = checkAnswers(checkbox_points);
 }
 
 function getTotalPoints(checkbox_points){
@@ -147,11 +150,6 @@ function getTotalPoints(checkbox_points){
 	//var test = $("[name=" + string + "]");
 	var test = document.getElementsByName(string);
 	
-	/*if(test.length > 0){
-		alert("text exists");
-	}else
-		alert("it doesnt exist");*/
-		
 	while(test.length>0){
 		counter++		
 		total_points++;
@@ -175,11 +173,11 @@ function getTotalPoints(checkbox_points){
 		test = document.getElementsByName(string);
 	}
 	
-	for(i=0; i<checkbox_points.length;i++){
+	/*for(i=0; i<checkbox_points.length;i++){
 			alert(checkbox_points[i]);
-	}
+	}*/
 	
-	alert(total_points);
+	//alert("Total points: " + total_points);
 }
 
 function calculatePointDistribution(string, checkbox_points){
@@ -195,4 +193,76 @@ function calculatePointDistribution(string, checkbox_points){
 	});
 	
 	checkbox_points.push( 1 / (no_of_correct_answers));
+}
+
+function checkAnswers(checkbox_points){
+	var points = 0;
+	var counter = 1;
+	var string = "radio" + counter;
+	var test = document.getElementsByName(string); 
+ 	var appended = ".answer_box";
+	var value;
+	var test2;
+	
+	while(test.length>0){
+		/*value = document.querySelector("input[name=" + string + "]:checked").value;		
+		//alert(value);
+	
+		if(value == "correct")
+			points++;*/
+	
+		$("input[name=" + string +"]").each(function(){
+			value = $(this).attr("value");
+			
+			if(value == "correct"){
+				if($(this).is(":checked")){
+					points++;
+					$(this).parent(appended).append("<p class='correct'>Correct<p>");
+				} else
+					$(this).parent(appended).append("<p class='correction'>This is the right answer<p>");
+			} else {
+				if($(this).is(":checked")){
+					$(this).parent(appended).append("<p class='wrong'>This is the wrong answer<p>");
+				} else
+					$(this).parent(appended).append("<p class='correct'>This is indeed wrong<p>");
+			}			
+		});
+
+	
+		counter++;
+		string = "radio" + counter;
+		test = document.getElementsByName(string); 		
+	}
+	
+	counter = 1;
+	var index = 0;
+	string = "checkbox" + counter;
+	test = document.getElementsByName(string);
+	
+	while(test.length>0){
+		$("input[name=" + string +"]").each(function(){
+			value = $(this).attr("value");
+			
+			if(value == "correct"){
+				if($(this).is(":checked")){
+					points += checkbox_points[index];
+					$(this).parent(appended).append("<p class='correct'>Correct<p>");
+				} else
+					$(this).parent(appended).append("<p class='correction'>This is the right answer<p>");
+			} else {
+				if($(this).is(":checked")){
+					points -= checkbox_points[index];
+					$(this).parent(appended).append("<p class='wrong'>This is the wrong answer<p>");
+				} else
+					$(this).parent(appended).append("<p class='correct'>This is indeed wrong<p>");
+			}
+				
+			alert(points);
+		});
+	
+		counter++;
+		index++;
+		string = "checkbox" + counter;
+		test = document.getElementsByName(string); 			
+	}
 }
