@@ -16,6 +16,9 @@ function check(){
 		//Disable submit button
 		document.getElementById("submit_button").disabled = true;
 		
+		//Enabled retake/reload button
+		document.getElementById("reload_button").disabled = false;
+		
 		//Disables all inputs
 		$('.answer').prop('disabled', true);
 	
