@@ -48,21 +48,30 @@ body{
 }
 
 .correct{
-	background-color:green;
+	width:30%;
+	height:10%;		
+	background-color:#B0C4DE;
+	color:green;
 	margin-left:20px;
 	margin-top:5px;
 	margin-bottom:1px;
 }
 
 .correction{
-	background-color:yellow;
+	width:30%;
+	height:10%;		
+	background-color:#B0C4DE;
+	color:yellow;
 	margin-left:20px;
 	margin-top:5px;
 	margin-bottom:1px;
 }
 
 .wrong{
-	background-color:red;
+	width:30%;
+	height:10%;		
+	background-color:#B0C4DE;
+	color:red;
 	margin-left:20px;
 	margin-top:5px;
 	margin-bottom:1px;
