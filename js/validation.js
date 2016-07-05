@@ -223,7 +223,7 @@ function checkAnswers(checkbox_points){
 					$(this).parent(appended).append("<p class='correct'>This is indeed wrong<p>");
 			}	
 		});
-		$("input[name=" + name +"]").first().parent(appended).prepend("<p> "+ Number(points_for_question).toFixed(2) +"/1 Points</p>");
+		$("input[name=" + name +"]").first().parent(appended).prepend("<div class='points'> "+ Number(points_for_question).toFixed(2) +"/1 Points</div>");
 		points_for_question = 0;
 		
 		counter++;
@@ -258,7 +258,7 @@ function checkAnswers(checkbox_points){
 			}
 		});
 		
-		$("input[name=" + name +"]").first().parent(appended).prepend("<p> "+ Number(points_for_question).toFixed(2) +"/1 Points</p>");
+		$("input[name=" + name +"]").first().parent(appended).prepend("<div class='points'> "+ Number(points_for_question).toFixed(2) +"/1 Points</div>");
 		points_for_question = 0;
 	
 		counter++;

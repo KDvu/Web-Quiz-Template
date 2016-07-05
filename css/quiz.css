@@ -75,6 +75,16 @@ body{
 	font-style:italic;
 }
 
+.points{
+	border-radius:3px;
+	width:10%;
+	height:10%;
+	text-align: center;
+	background-color:#E6E6FA;
+	margin-left:10px;
+	font-size: 0.8em;
+}
+
 .align-center{
 	text-align:center;
 }
