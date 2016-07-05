@@ -76,6 +76,7 @@ body{
 }
 
 .points{
+	display:inline-block;
 	border-radius:3px;
 	width:10%;
 	height:10%;
