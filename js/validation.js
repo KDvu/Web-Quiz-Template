@@ -221,8 +221,10 @@ function checkAnswers(checkbox_points){
 					$(this).parent(appended).append("<p class='wrong'>This is the wrong answer<p>");
 				} else
 					$(this).parent(appended).append("<p class='correct'>This is indeed wrong<p>");
-			}			
+			}	
 		});
+		$("input[name=" + name +"]").first().parent(appended).prepend("<p> "+ Number(points_for_question).toFixed(2) +"/1 Points</p>");
+		points_for_question = 0;
 		
 		counter++;
 		name = "radio" + counter;
@@ -241,19 +243,23 @@ function checkAnswers(checkbox_points){
 			if(value == "correct"){
 				if($(this).is(":checked")){
 					points += checkbox_points[index];
+					points_for_question += checkbox_points[index];	
+					
 					$(this).parent(appended).append("<p class='correct'>Correct<p>");
 				} else
 					$(this).parent(appended).append("<p class='correction'>This is the right answer<p>");
 			} else {
 				if($(this).is(":checked")){
 					points -= checkbox_points[index];
+					points_for_question -= checkbox_points[index];					
 					$(this).parent(appended).append("<p class='wrong'>This is the wrong answer<p>");
 				} else
 					$(this).parent(appended).append("<p class='correct'>This is indeed wrong<p>");
 			}
-				
-			//alert(points);
 		});
+		
+		$("input[name=" + name +"]").first().parent(appended).prepend("<p> "+ Number(points_for_question).toFixed(2) +"/1 Points</p>");
+		points_for_question = 0;
 	
 		counter++;
 		index++;
