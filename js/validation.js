@@ -2,9 +2,6 @@
 function check(){
 	var valid = true;
 	
-	//Disables hover effect
-	$( ".answer" ).unbind(); 
-	
 	//Remove warnings before possibly adding them again
 	$(".warning").remove();
 	
@@ -18,6 +15,12 @@ function check(){
 		
 		//Disable submit button
 		document.getElementById("submit_button").disabled = true;
+		
+		//Disables all inputs
+		$('.answer').prop('disabled', true);
+	
+		//Disables hover effect
+		$(".answer_box").unbind(); 		
 	}else
 		alert("You have not answer all the questions");
 }

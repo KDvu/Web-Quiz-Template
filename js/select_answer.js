@@ -7,10 +7,6 @@ $(document).ready(function(){
 			//$(evt.target).find('input:checkbox')[0].checked = true;
 			$(evt.target).find('input:checkbox').trigger('click'); 
 		
-	});
-	
-	//$('input[type=checkbox]').trigger('click'); 
-	//$('input[type=checkbox]').click(); 
-
+	});	
 });
 
