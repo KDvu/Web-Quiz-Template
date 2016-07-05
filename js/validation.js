@@ -146,31 +146,31 @@ function attachFeedback(){
 function getTotalPoints(checkbox_points){
 	var total_points = 0;
 	var counter = 1;
-	var string = "radio" + counter;
-	//var test = $("[name=" + string + "]");
-	var test = document.getElementsByName(string);
+	var name = "radio" + counter;
+	//var element_name = $("[name=" + string + "]");
+	var element_name = document.getElementsByName(name);
 	
-	while(test.length>0){
+	while(element_name.length>0){
 		counter++		
 		total_points++;
-		string = "radio" + counter;		
-		//test = $("[name=" + string + "]");
-		test = document.getElementsByName(string);
+		name = "radio" + counter;		
+		//element_name = $("[name=" + string + "]");
+		element_name = document.getElementsByName(name);
 	}
 	
 	counter = 1;
-	string = "checkbox" + counter;
-	test = document.getElementsByName(string);
+	name = "checkbox" + counter;
+	element_name = document.getElementsByName(name);
 		
-	while(test.length>0){
-		//alert("Length: " + test.length);
+	while(element_name.length>0){
+		//alert("Length: " + element_name.length);
 		counter++		
 		total_points++;
 		
-		calculatePointDistribution(string, checkbox_points);
+		calculatePointDistribution(name, checkbox_points);
 		
-		string = "checkbox" + counter;
-		test = document.getElementsByName(string);
+		name = "checkbox" + counter;
+		element_name = document.getElementsByName(name);
 	}
 	
 	/*for(i=0; i<checkbox_points.length;i++){
@@ -180,12 +180,12 @@ function getTotalPoints(checkbox_points){
 	//alert("Total points: " + total_points);
 }
 
-function calculatePointDistribution(string, checkbox_points){
+function calculatePointDistribution(name, checkbox_points){
 	var no_of_correct_answers = 0;
-	var selector = $("[name=" + string + " ]");
+	var element_name = $("[name=" + name + " ]");
 	var value; 
 		
-	selector.each(function(){
+	element_name.each(function(){
 		value = $(this).attr("value");
 		
 		if(value == "correct")
@@ -198,25 +198,21 @@ function calculatePointDistribution(string, checkbox_points){
 function checkAnswers(checkbox_points){
 	var points = 0;
 	var counter = 1;
-	var string = "radio" + counter;
-	var test = document.getElementsByName(string); 
+	var name = "radio" + counter;
+	var element_name = document.getElementsByName(name); 
  	var appended = ".answer_box";
 	var value;
-	var test2;
+	var points_for_question = 0;
 	
-	while(test.length>0){
-		/*value = document.querySelector("input[name=" + string + "]:checked").value;		
-		//alert(value);
+	while(element_name.length>0){
 	
-		if(value == "correct")
-			points++;*/
-	
-		$("input[name=" + string +"]").each(function(){
+		$("input[name=" + name +"]").each(function(){
 			value = $(this).attr("value");
 			
 			if(value == "correct"){
 				if($(this).is(":checked")){
 					points++;
+					points_for_question++;
 					$(this).parent(appended).append("<p class='correct'>Correct<p>");
 				} else
 					$(this).parent(appended).append("<p class='correction'>This is the right answer<p>");
@@ -227,20 +223,19 @@ function checkAnswers(checkbox_points){
 					$(this).parent(appended).append("<p class='correct'>This is indeed wrong<p>");
 			}			
 		});
-
-	
+		
 		counter++;
-		string = "radio" + counter;
-		test = document.getElementsByName(string); 		
+		name = "radio" + counter;
+		element_name = document.getElementsByName(name); 		
 	}
 	
 	counter = 1;
 	var index = 0;
-	string = "checkbox" + counter;
-	test = document.getElementsByName(string);
+	name = "checkbox" + counter;
+	element_name = document.getElementsByName(name);
 	
-	while(test.length>0){
-		$("input[name=" + string +"]").each(function(){
+	while(element_name.length>0){
+		$("input[name=" + name +"]").each(function(){
 			value = $(this).attr("value");
 			
 			if(value == "correct"){
@@ -257,12 +252,12 @@ function checkAnswers(checkbox_points){
 					$(this).parent(appended).append("<p class='correct'>This is indeed wrong<p>");
 			}
 				
-			alert(points);
+			//alert(points);
 		});
 	
 		counter++;
 		index++;
-		string = "checkbox" + counter;
-		test = document.getElementsByName(string); 			
+		name = "checkbox" + counter;
+		element_name = document.getElementsByName(name); 			
 	}
 }
